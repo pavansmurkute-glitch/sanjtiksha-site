@@ -1,0 +1,173 @@
+<!-- src/main/resources/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SanjTiksha Roots and Wings</title>
+    <!-- Bootstrap -->
+    <!-- Bootstrap CSS (CDN) -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Bootstrap JS (bundle with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your custom script -->
+    <script src="/js/script.js"></script>
+
+</head>
+<body>
+
+<!-- Header fragment -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- Hero -->
+<!-- Hero -->
+<section class="hero">
+    <!-- Left Logo -->
+    <div class="hero-logo-box">
+        <img src="/images/hero_image_noback.png" alt="SanjTiksha Left Logo" class="hero-logo">
+    </div>
+
+    <!-- Center Content -->
+    <div class="hero-content">
+        <h1 class="brand-title">
+            <span class="part1">SANJ</span><span class="part2">TIKSHA</span>
+        </h1>
+        <h1>Roots and Wings</h1>
+        <p><strong>Roots in Trust, Wings in Growth</strong><br>
+            Trading (Retail & Wholesale) • IT Services (Web, Apps, Database, Consulting)
+        </p>
+        <div class="cta">
+            <a class="btn-primary" href="/products">Explore Products</a>
+            <a class="btn-outline" href="/services">Our Services</a>
+        </div>
+    </div>
+
+    <!-- Right Logo -->
+    <div class="hero-logo-box">
+        <img src="/images/hero_image_noback.png" alt="SanjTiksha Right Logo" class="hero-logo">
+    </div>
+</section>
+
+
+
+
+<!-- Why Choose Us -->
+<section class="why-choose">
+    <h2 class="section-title tech">Why Choose SanjTiksha?</h2>
+    <div class="why-grid">
+        <div class="why-card">
+            🌍 <strong>Wide Range</strong>
+            <p>Products for households and businesses.</p>
+        </div>
+        <div class="why-card">
+            📦 <strong>Wholesale Options</strong>
+            <p>Perfect for dealers and online sellers.</p>
+        </div>
+        <div class="why-card">
+            💻 <strong>IT Services</strong>
+            <p>Web, app, database & infra expertise.</p>
+        </div>
+        <div class="why-card">
+            🤝 <strong>Customer Trust</strong>
+            <p>Transparent support & clear policies.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Featured Products -->
+<section class="page-section bg-light">
+    <div class="container">
+        <h2 class="section-title tech">Featured Product Categories</h2>
+        <div class="card-grid">
+            <div class="card"><h3>Kitchen &amp; Groceries</h3><p>Everyday essentials and packaged goods.</p></div>
+            <div class="card"><h3>Electronics &amp; Electricals</h3><p>Quality products from trusted brands.</p></div>
+            <div class="card"><h3>Clothing &amp; Footwear</h3><p>Comfortable, affordable apparel for all ages.</p></div>
+            <div class="card"><h3>Household &amp; Packaging</h3><p>Plastics, storage, and packaging solutions.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- IT Services -->
+<section class="page-section">
+    <div class="container">
+        <h2 class="section-title tech">IT &amp; Business Services</h2>
+        <div class="card-grid">
+            <div class="card"><h3>Web &amp; App Development</h3><p>Custom websites, e-commerce, and mobile apps.</p></div>
+            <div class="card"><h3>Database Management</h3><p>MS SQL, MySQL &amp; Oracle services with optimization.</p></div>
+            <div class="card"><h3>Digital Marketing</h3><p>SEO, social media and ads to grow your reach.</p></div>
+            <div class="card"><h3>IT Consulting</h3><p>Infrastructure, hosting and business technology advice.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- About Snapshot -->
+<section class="about">
+    <div class="about-container">
+        <!-- Left Content -->
+        <div class="about-logo">
+            <img src="/images/main_logo_noback_2.png" alt="SanjTiksha Logo">
+        </div>
+        <div class="about-text">
+
+            <h2 class="section-title tech">About SanjTiksha</h2>
+            <p><strong>SanjTiksha Trading & IT Services</strong> is built on a vision of empowering
+                businesses and individuals with trust, innovation, and growth.
+                Founded by <strong>Pavan Murkute</strong>, we bring together trading expertise
+                and IT solutions under one roof.</p>
+
+            <p>We believe in <em>"Roots in Trust, Wings in Growth"</em> – providing a
+                foundation of reliability while enabling clients to expand with
+                innovative solutions.</p>
+
+            <a href="/about" class="btn-primary">Know More</a>
+        </div>
+
+        <!-- Right Logo -->
+        <div class="about-logo">
+            <img src="/images/main_logo_noback_2.png" alt="SanjTiksha Logo">
+        </div>
+    </div>
+</section>
+<!-- Client Testimonials -->
+<section class="page-section">
+    <div class="container">
+        <h2 class="section-title tech">What Our Clients Say</h2>
+        <div class="card-grid">
+            <div class="card"><p> “SanjTiksha helped us expand our retail business with their wholesale trading support. Highly reliable!.”</p><strong>- Mr.Sachin Kanawade, Director, GIGA MARKETING AND SOLUTIONS Pvt. Ltd. </strong></div>
+            <div class="card"><p>“Their IT team delivered a custom e-commerce website with database integration. Excellent service.”</p><strong>- Mr.Nittal Vakharia, Director - NSR Infotech Pvt. Ltd.</strong></div>
+            <div class="card"><p>“SanjTiksha helped us expand our retail business with their reliable wholesale trading support. Their service has been smooth and trustworthy.”</p><strong>- Manoj Surana, Owner, Kunal Medical </strong></div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="page-section stats bg-light">
+    <h2 class="section-title tech">Our Stats</h2>
+    <div class="container card-grid">
+        <div class="card"><h2 data-target="500">0</h2><p>Products Delivered</p></div>
+        <div class="card"><h2 data-target="200">0</h2><p>Happy Clients</p></div>
+        <div class="card"><h2 data-target="2">0</h2><p>Years of Expertise</p></div>
+        <div class="card"><h2 data-target="24" data-suffix="/7">0</h2><p>Customer Support</p></div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+
+<!-- Bootstrap JS (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your custom script -->
+<script src="/js/script.js"></script>
+</body>
+</html>

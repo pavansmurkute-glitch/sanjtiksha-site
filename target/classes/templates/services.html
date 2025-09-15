@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Services - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- Services Section -->
+<section class="page-section services-page">
+    <div class="container">
+        <h1 class="brand-heading">
+            <span class="sanj">SANJ</span><span class="tiksha">TIKSHA</span> Services
+        </h1>
+
+        <!-- Intro with team/division explanation -->
+        <p><strong>SanjTiksha Trading &amp; IT Services</strong> delivers solutions across
+            two specialized divisions. Our <span class="teal">Trading Division</span> manages
+            product sourcing, supply chain, and wholesale/retail operations, while our
+            <span class="teal">Technology Division</span> focuses on IT products, software
+            solutions, and consulting services. This dual-team structure ensures every client
+            receives expert attention in the area they need.</p>
+
+        <!-- Services Breakdown -->
+        <p><strong>IT &amp; Software Development:</strong> We design and build
+            <span class="teal">custom software</span>, <span class="teal">websites</span>, and
+            <span class="teal">mobile apps</span> that enable businesses to modernize, scale,
+            and operate more efficiently.</p>
+
+        <p><strong>Database Management &amp; Infrastructure:</strong> Our experts provide
+            <span class="teal">database design, optimization, and performance tuning</span>.
+            We also deliver <span class="teal">hosting and infrastructure support</span> to
+            ensure secure, reliable operations.</p>
+
+        <p><strong>IT Consulting &amp; Technical Services:</strong> We help businesses
+            define IT strategy, implement the right technologies, and provide
+            <span class="teal">technical support</span> for smooth daily operations.</p>
+
+        <p><strong>Digital Marketing &amp; Business Consulting:</strong> From SEO and
+            social media to digital campaigns, we strengthen our clients’ online presence.
+            Alongside this, our <span class="teal">business consulting services</span> provide
+            guidance for sustainable growth.</p>
+
+        <p>
+            🛠️ For service-related assistance or IT support, reach us at
+            <a href="mailto:support@sanjtiksha.com" class="highlight-email">support@sanjtiksha.com</a>
+        </p>
+
+        <!-- Closing tagline -->
+        <p class="tagline"><em>"Empowering Growth Through Trading &amp; Technology"</em></p>
+    </div>
+</section>
+
+<!-- Footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+
+
+</body>
+</html>

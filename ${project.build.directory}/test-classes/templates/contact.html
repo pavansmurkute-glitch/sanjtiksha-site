@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Us - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Contact Us</h1>
+</header>
+
+<nav>
+    <a th:href="@{/}">Home</a> |
+    <a th:href="@{/about}">About</a> |
+    <a th:href="@{/services}">Services</a> |
+    <a th:href="@{/products}">Products</a> |
+    <a th:href="@{/team}">Team</a> |
+    <a th:href="@{/contact}">Contact</a>
+</nav>
+
+<section>
+    <form th:action="@{/contact}" method="post">
+        <label>Name:</label>
+        <input type="text" name="name" required><br/>
+        <label>Email:</label>
+        <input type="email" name="email" required><br/>
+        <label>Message:</label><br/>
+        <textarea name="message" rows="5" required></textarea><br/>
+        <button type="submit">Send</button>
+    </form>
+
+    <p th:if="${success}" th:text="${success}" style="color:green;"></p>
+</section>
+
+<footer>
+    <p>&copy; 2025 SanjTiksha Trading & IT Services</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Leadership & Divisions - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- Leadership & Divisions Section -->
+<section class="page-section leadership-page">
+    <div class="container">
+        <h1 class="brand-heading">
+            Our <span class="sanj">Leadership</span> &amp; <span class="tiksha">Divisions</span>
+        </h1>
+
+        <p>Guided by founder <strong>Pavan Murkute</strong>,
+            <strong>SanjTiksha Trading &amp; IT Services</strong> is structured into two
+            specialized divisions — <span class="teal">Trading</span> and
+            <span class="teal">Technology</span>. Each division is led by experienced leaders
+            to ensure every client engagement is managed with focus and expertise.</p>
+
+        <!-- Division Cards -->
+        <div class="division-cards">
+            <!-- Trading Division -->
+            <div class="division-card">
+                <h3>Trading Division</h3>
+                <p><strong>Led by Rajesh Vadde</strong>, our Trading Division is managed by
+                    experienced professionals who focus on
+                    <span class="teal">product sourcing, supply chain, and wholesale/retail operations</span>.
+                    Their mission is to deliver products reliably, with quality and timeliness as top priorities.</p>
+                <p><strong>Contact Sales:</strong>
+                    <a href="mailto:sales@sanjtiksha.com">sales@sanjtiksha.com</a></p>
+            </div>
+
+            <!-- Technology Division -->
+            <div class="division-card">
+                <h3>Technology Division</h3>
+                <p><strong>Led by Apurva Kumar</strong>, our Technology Division is powered by
+                    skilled IT specialists delivering
+                    <span class="teal">software products, IT services, consulting, and digital solutions</span>.
+                    They ensure businesses receive innovative, scalable, and secure solutions tailored
+                    to their growth needs.</p>
+                <p><strong>Support Contact:</strong>
+                    <a href="mailto:support@sanjtiksha.com">support@sanjtiksha.com</a></p>
+            </div>
+        </div>
+
+        <p class="tagline"><em>"Two Divisions. One Mission — Client Success."</em></p>
+    </div>
+</section>
+
+<!-- Footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

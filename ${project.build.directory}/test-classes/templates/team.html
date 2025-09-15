@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Our Team - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Our Dedicated Team</h1>
+</header>
+
+<nav>
+    <a th:href="@{/}">Home</a> |
+    <a th:href="@{/about}">About</a> |
+    <a th:href="@{/services}">Services</a> |
+    <a th:href="@{/products}">Products</a> |
+    <a th:href="@{/team}">Team</a> |
+    <a th:href="@{/contact}">Contact</a>
+</nav>
+
+<section>
+    <div th:each="member : ${team}">
+        <h3 th:text="${member.title}">Team Member</h3>
+        <p th:text="${member.description}"></p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 SanjTiksha Trading & IT Services</p>
+</footer>
+</body>
+</html>

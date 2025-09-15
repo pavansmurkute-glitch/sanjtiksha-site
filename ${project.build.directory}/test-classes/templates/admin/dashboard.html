@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Admin Dashboard</h1>
+    <a th:href="@{/logout}">Logout</a>
+</header>
+
+<section>
+    <h2>Manage Services</h2>
+    <form th:action="@{/admin/services/add}" method="post">
+        <input type="text" name="name" placeholder="Service Name" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        <li th:each="srv : ${services}">
+            <span th:text="${srv.name}"></span> - <span th:text="${srv.description}"></span>
+            <a th:href="@{'/admin/services/delete/' + ${srv.id}}">Delete</a>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Manage Products</h2>
+    <form th:action="@{/admin/products/add}" method="post">
+        <input type="text" name="name" placeholder="Product Name" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="number" step="0.01" name="price" placeholder="Price" required>
+        <input type="url" name="amazonLink" placeholder="Amazon Link">
+        <input type="url" name="flipkartLink" placeholder="Flipkart Link">
+        <input type="url" name="meeshoLink" placeholder="Meesho Link">
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        <li th:each="prod : ${products}">
+            <span th:text="${prod.name}"></span> - <span th:text="${prod.price}"></span>
+            <a th:href="@{'/admin/products/delete/' + ${prod.id}}">Delete</a>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Manage Team</h2>
+    <form th:action="@{/admin/team/add}" method="post">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="url" name="photoUrl" placeholder="Photo URL">
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        <li th:each="mem : ${team}">
+            <span th:text="${mem.title}"></span> - <span th:text="${mem.description}"></span>
+            <a th:href="@{'/admin/team/delete/' + ${mem.id}}">Delete</a>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Contact Messages</h2>
+    <ul>
+        <li th:each="msg : ${messages}">
+            <strong th:text="${msg.name}"></strong> (<span th:text="${msg.email}"></span>):
+            <span th:text="${msg.message}"></span>
+        </li>
+    </ul>
+</section>
+
+</body>
+</html>

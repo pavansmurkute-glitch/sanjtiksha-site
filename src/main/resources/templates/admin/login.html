@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<section class="hero">
+    <h1>Admin Login</h1>
+    <form th:action="@{/admin/login}" method="post">
+        <label>Username: <input type="text" name="username"></label><br><br>
+        <label>Password: <input type="password" name="password"></label><br><br>
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+</section>
+</body>
+</html>

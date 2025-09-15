@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products - SanjTiksha</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Our Products</h1>
+</header>
+
+<nav>
+    <a th:href="@{/}">Home</a> |
+    <a th:href="@{/about}">About</a> |
+    <a th:href="@{/services}">Services</a> |
+    <a th:href="@{/products}">Products</a> |
+    <a th:href="@{/team}">Team</a> |
+    <a th:href="@{/contact}">Contact</a>
+</nav>
+
+<section>
+    <div th:each="prod : ${products}">
+        <h3 th:text="${prod.name}"></h3>
+        <p th:text="${prod.description}"></p>
+        <p><strong>Price:</strong> ₹<span th:text="${prod.price}"></span></p>
+        <p>
+            <a th:if="${prod.amazonLink}" th:href="${prod.amazonLink}" target="_blank">Buy on Amazon</a>
+            <a th:if="${prod.flipkartLink}" th:href="${prod.flipkartLink}" target="_blank">Buy on Flipkart</a>
+            <a th:if="${prod.meeshoLink}" th:href="${prod.meeshoLink}" target="_blank">Buy on Meesho</a>
+        </p>
+        <hr/>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 SanjTiksha Trading & IT Services</p>
+</footer>
+</body>
+</html>
