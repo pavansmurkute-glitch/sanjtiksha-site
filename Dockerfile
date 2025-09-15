@@ -1,17 +1,24 @@
-# Stage 1: build the jar with Maven
-FROM maven:3.8.8-openjdk-17 AS builder
+# Stage 1: Build the JAR
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
 
-# copy everything and build
-COPY . /app
-RUN mvn -B -DskipTests package
+# Copy pom.xml and download dependencies first (cache layer)
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
 
-# Stage 2: runtime image (smaller)
-FROM eclipse-temurin:17-jre-jammy
+# Copy source code and build the application
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run the JAR
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
-# copy built jar from builder stage (first jar found in target)
-COPY --from=builder /app/target/*.jar /app/app.jar
+# Copy the built jar from builder stage
+COPY --from=builder /app/target/*.jar app.jar
 
+# Expose port 8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+
+# Start the app
+ENTRYPOINT ["java", "-jar", "app.jar"]
