@@ -24,6 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const stats = document.querySelectorAll(".stats .card h2");
 
+  window.addEventListener("scroll", function() {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+
+
   // Counter animation helper
   function animateCounter(el, target) {
     let current = 0;

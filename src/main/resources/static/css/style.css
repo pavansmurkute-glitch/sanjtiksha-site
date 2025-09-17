@@ -13,11 +13,17 @@
    ========================= */
 /* Navbar */
 .navbar {
-  background: #003366; /* Navy blue */
+  background: rgba(15, 76, 92, 0.85); /* #0f4c5c with 85% opacity */
   padding: 14px 0;
-  position: sticky;
+  position: fixed;   /* stays on top */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 999;
+
+  /* Optional: blur effect for premium look */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .navbar-inner {
@@ -62,17 +68,9 @@
 }
 
 
-.footer, .site-footer {
-  background: linear-gradient(90deg, #003366, #0056a6) !important;
-  color: #fff !important;
-}
-.footer a, .site-footer a {
-  color: #ffc107 !important;
-}
-.footer a:hover, .site-footer a:hover {
-  color: #fff !important;
-}
 
+
+/* Hero Section unify */
 /* Hero Section unify */
 
 .hero {
@@ -85,10 +83,6 @@
   padding: 80px 60px;
   text-align: center;
 
-  /* Fallback gradient + Hero banner */
-  background: linear-gradient(135deg, #2563eb, #4f46e5, #9333ea),
-              url('/images/hero-banner.jpg') center/cover no-repeat;
-  background-blend-mode: overlay; /* mix gradient + image */
   position: relative;
   min-height: 90vh;
 }
@@ -128,13 +122,7 @@
   color: #0056a6 !important;
 }
 
-/* Section Headings unify */
-.page-section h2,
-.why-choose h2,
-.about h2 {
-  color: #003366 !important;
-  font-weight: 700 !important;
-}
+
 
 /* Cards unify */
 .card {
@@ -155,15 +143,7 @@
 
 /* Global */
 * { box-sizing: border-box; }
-html,body { height: 100%; }
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f9fafb;
-  color: #111827;
-  line-height: 1.6;
-  scroll-behavior: smooth;
-}
+
 .container {
    max-width: 1200px;
      width: 100%;
@@ -177,45 +157,24 @@ body {
 
 /* Header & Footer */
 
-.site-footer {
-  background: #222;
-  color: #ddd;
-  padding: 15px 20px;
-  text-align: center;
-  font-size: 0.95rem;
+/* =========================
+   Final Unified Footer
+   ========================= */
+
+/* GST line (make it subtle but clear) */
+.gst-text {
+  font-size: 0.9rem;
+  color: #ffd966;   /* softer yellow */
+  font-weight: 500;
+}
+.gst-text strong {
+  color: #fff;
 }
 
-.site-footer a {
-  color: #00b3b3; /* teal shade for links */
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-container p {
-  margin: 0;
-  line-height: 1.6;
-}
-
-header, footer { background-color: #3A5073; color: white; }
-header nav a, footer a {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  margin: 0 15px;
-}
-header nav a:hover, footer a:hover { color: #facc15; }
 
 /* Hero Section */
 
 
-.hero-content {
-  flex: 2;
-  max-width: 800px;
-  margin: 0 40px;
-}
 .hero-content h1 {
   font-size: 48px;
   font-weight: 700;
@@ -257,14 +216,7 @@ header nav a:hover, footer a:hover { color: #facc15; }
   align-items: center;
   min-width: 120px;
 }
-.hero-logo {
-  width: 140px;
-  height: auto;
-  max-width: 100%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s ease;
-}
+
 .hero-logo:hover { transform: scale(1.05); }
 
 /* General Buttons */
@@ -313,12 +265,7 @@ header nav a:hover, footer a:hover { color: #facc15; }
 
 
 /* Sections */
-.page-section {
-  padding: 72px 20px;
-  opacity: 1;
-  transform: none;
-  transition: all .8s ease;
-}
+
 html.js .page-section { opacity: 0; transform: translateY(30px); }
 html.js .page-section.visible { opacity: 1; transform: translateY(0); }
 .page-section .container { max-width: 1100px; margin: 0 auto; }
@@ -378,14 +325,6 @@ html.js .page-section.visible { opacity: 1; transform: translateY(0); }
 .card p { font-style: italic; color: #374151; }
 .card strong { display:block; margin-top: 12px; color: #0f172a; }
 .stats h2 { font-size: 34px; color:#2563eb; margin-bottom:6px; }
-
-/* Footer */
-.footer {
-  background: #0b1220;
-  color: #9ca3af;
-  padding: 24px 20px;
-  text-align:center;
-}
 
 /* Features grid */
 .features-grid {
@@ -946,9 +885,6 @@ footer .logo-part2 {
 }
 
 /* Hero Background Parallax Effect */
-.hero {
-  background-attachment: fixed;
-}
 
 /* =========================
    Hero Logos Floating Effect
@@ -1314,6 +1250,72 @@ img {
 }
 
 
+/* =========================
+   HERO BACKGROUND SLIDESHOW (CLEAN crossfade - original image colors)
+   ========================= */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+
+  /* Slideshow animation */
+  animation: heroSlideshow 18s infinite;
+  background-size: cover;          /* ✅ fill screen, no black sides */
+  background-position: top center; /* ✅ keep top visible, crop bottom */
+  background-repeat: no-repeat;    /* no tiling */
+
+  transition: background-image 1s ease-in-out;
+}
+
+/* Overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Content stays on top */
+.hero-content,
+.hero-logo-box {
+  position: relative;
+  z-index: 2;
+}
+
+/* Crossfade keyframes */
+@keyframes heroSlideshow {
+  0%, 33% {
+    background-image: url('/images/dev_hero.avif');
+  }
+  34%, 66% {
+    background-image: url('/images/support_hero.avif');
+  }
+  67%, 100% {
+    background-image: url('/images/wearhouse_hero.jpg');
+  }
+}
+
+/* JPG fallback if AVIF not supported */
+@supports not (background-image: url("image.avif")) {
+  @keyframes heroSlideshow {
+    0%, 33% {
+      background-image: url('/images/dev_hero.jpg');
+    }
+    34%, 66% {
+      background-image: url('/images/support_hero.jpg');
+    }
+    67%, 100% {
+      background-image: url('/images/wearhouse_hero.jpg');
+    }
+  }
+}
+
 
 /* =========================
    RESPONSIVE
@@ -1354,3 +1356,142 @@ img {
     background-attachment: scroll !important; /* force normal scroll on mobile */
   }
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;   /* prevent horizontal scroll */
+  overflow-y: auto;     /* only allow vertical scroll */
+}
+
+/* =========================
+   FINAL NAVBAR (Brown + Teal Gradient)
+   ========================= */
+
+/* Default navbar (top of page, transparent gradient over hero) */
+header, .navbar {
+  background: linear-gradient(
+    90deg,
+    rgba(160, 82, 45, 0.8),   /* #a0522d with opacity */
+    rgba(15, 76, 92, 0.8)     /* #0f4c5c with opacity */
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 14px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  border: none;
+  box-shadow: none;
+}
+
+/* When scrolled (stronger gradient, less transparent) */
+.navbar.scrolled {
+  background: linear-gradient(
+    90deg,
+    rgba(160, 82, 45, 0.95),  /* solid brown */
+    rgba(15, 76, 92, 0.95)    /* solid teal */
+  );
+}
+
+/* Nav links */
+.navbar a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+.navbar a:hover {
+  color: #ffc107;  /* golden accent on hover */
+}
+
+/* =========================
+   FINAL FOOTER STYLE
+   ========================= */
+.site-footer {
+  background: linear-gradient(135deg, #a0522d 0%, #0f4c5c 100%); /* brown → teal blend */
+  color: #fff;
+  padding: 25px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-top: 2px solid rgba(255, 255, 255, 0.15); /* subtle border */
+}
+
+/* Footer links */
+.site-footer a {
+  color: #ffc107;   /* golden accent */
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+.site-footer a:hover {
+  color: #fff;      /* white on hover */
+}
+
+/* Footer container */
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Footer text */
+.site-footer p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* === FIX HERO WHITE GAP & SECTION SPACING === */
+
+/* Make hero always cover full screen */
+.hero {
+  min-height: 100vh !important;  /* full screen height */
+  margin-bottom: 0 !important;   /* no extra gap below */
+  padding-bottom: 0 !important;
+}
+
+/* Sections */
+.page-section {
+  padding: 72px 20px;
+  opacity: 1;
+  transform: none;
+  transition: all .8s ease;
+}
+html.js .page-section { opacity: 0; transform: translateY(30px); }
+html.js .page-section.visible { opacity: 1; transform: translateY(0); }
+.page-section .container { max-width: 1100px; margin: 0 auto; }
+.page-section h2 {
+  font-size: 28px;
+  color:#0f172a;
+  margin-bottom: 18px;
+  text-align:center;
+}
+
+.hero {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* Make all sections share the same clean background */
+/* =========================
+   FIX SECTION BACKGROUND LINE
+   ========================= */
+.page-section,
+.why-choose,
+.features-grid,
+.about-container,
+.services-page,
+.products-page,
+.leadership-page,
+.contact-page {
+  background: #ffffff !important;   /* force pure white */
+  box-shadow: none !important;      /* remove any subtle section shadows */
+}
+
