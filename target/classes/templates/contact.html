@@ -1,20 +1,24 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - SanjTiksha</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<!-- Header -->
-<div th:replace="~{fragments/header :: header}"></div>
+<!-- Include header fragment -->
+<th:block th:replace="fragments/header :: header"></th:block>
 
 <!-- Contact Us Section -->
 <section class="page-section contact-page">
     <div class="container">
-        <h1 class="brand-heading">
-            <span class="sanj">Contact</span> <span class="tiksha">Us</span>
-        </h1>
 
         <p class="intro-text">
             We’re here to help. Whether it’s trading, technology, or general inquiries —
@@ -47,6 +51,14 @@
                     <h3>Admin & Operations</h3>
                     <p>📩 <a href="mailto:admin@sanjtiksha.com" class="highlight-email">admin@sanjtiksha.com</a></p>
                     <p>📞 +91 9921793267</p>
+                </div>
+
+                <!-- ✅ New Business Details Card -->
+                <div class="contact-card">
+                    <h3>Business Details</h3>
+                    <p>📍 SanjTiksha Trading &amp; IT Services<br>
+                        Dalvi Nagar, Katraj, Pune, Maharashtra, India</p>
+                    <p>🧾 GST No: <span class="gst-number">27ATEPM3471C1ZV</span></p>
                 </div>
 
             </div>
@@ -92,5 +104,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/script.js"></script>
+
 </body>
 </html>
